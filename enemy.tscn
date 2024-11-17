@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://clldqq5vori0b"]
+
+[ext_resource type="Texture2D" uid="uid://dnji4v08m3lfk" path="res://enemy.png" id="1_5oivv"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_rsjdp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nacx5"]
+size = Vector2(14, 14)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_rsjdp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nacx5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5oivv")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+simplify_path = true
+avoidance_enabled = true
+radius = 8.0
+debug_enabled = true
